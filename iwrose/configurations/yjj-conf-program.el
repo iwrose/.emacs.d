@@ -4,10 +4,10 @@
 
 ;;semantic配置 
 (semantic-load-enable-minimum-features)
-;;(semantic-load-enable-code-helpers)
-;(semantic-load-enable-guady-code-helpers)
-;;(semantic-load-enable-excessive-code-helpers)
-(semantic-load-enable-semantic-debugging-helpers)
+(semantic-load-enable-code-helpers)
+(semantic-load-enable-guady-code-helpers)
+(semantic-load-enable-excessive-code-helpers)
+;(semantic-load-enable-semantic-debugging-helpers)
 
 ;; (setq semanticdb-project-roots (list (expand-file-name "/")))
 ;;(defconst cedet-user-include-dirs
@@ -45,13 +45,13 @@
                     (semantic-mrub-switch-tags first))))
 
 ;;声明与函数间的跳转按键定义
-(define-key c-mode-base-map [M-S-f12] 'semantic-analyze-proto-impl-toggle)
+;(define-key c-mode-base-map [M-S-f12] 'semantic-analyze-proto-impl-toggle)
 
 ;;代码补全按键定义
-(define-key c-mode-base-map (kbd "M-n") 'semantic-ia-complete-symbol-menu)
+;(define-key c-mode-base-map (kbd "M-n") 'semantic-ia-complete-symbol-menu)
 
 ;;EED配置
 (global-ede-mode t)
 
 (require 'semantic-tag-folding nil 'noerror)
-(global-semantic-tag-folding-mode t)
+(global-semantic-tag-folding-mode 1)
