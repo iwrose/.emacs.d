@@ -7,3 +7,6 @@
 
 ;;设置markdown模式
 (require 'yjj-conf-markdown)
+
+;;设置C语言编程环境CEDET
+(require 'yjj-conf-program)
