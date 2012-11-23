@@ -1,0 +1,46 @@
+(provide 'yjj-conf-color-theme)
+;;选择主题
+(setq window_day_theme 'color-theme-tangotango)
+(setq window_night_theme 'color-theme-tangotango)
+(setq console_day_theme 'color-theme-tangotango)
+(setq console_night_theme 'color-theme-tangotango)
+;;初始化位置信息
+(setq calendar-location-name "Dallas, TX") 
+(setq calendar-latitude 32.85)
+(setq calendar-longitude -96.85)
+
+;;-----------------------------以上为自定义部分----------------
+;;加载文件
+(require 'color-theme);;在packages/theme目录下
+(require window_night_theme)
+(require window_day_theme)
+(require console_night_theme)
+(require console_day_theme)
+(require 'theme-changer)
+
+;;针对系统做初始化，copy来，不知到原因
+(cond
+ ((string-match "apple-darwin" system-configuration)
+  (color-theme-initialize)
+  )
+ ((string-match "linux" system-configuration)
+  (color-theme-initialize)
+  )
+ )
+;(color-theme-tangotango)
+;(window_day_theme)
+;;对窗口/终端实现Day/night toggling based on time of day
+;(change-theme window_day_theme window_night_theme)
+(change-theme 'color-theme-tangotango 'color-theme-tangotango)
+;;
+(defun toggle-night-color-theme ()
+      "Switch to/from night color scheme."
+      (interactive)
+      (require 'color-theme)
+      (if (eq (frame-parameter (next-frame) 'background-mode) 'dark)
+          (color-theme-tangotongo) ; restore default (light) colors
+        ;; create the snapshot if necessary
+        (when (not (commandp 'color-theme-snapshot))
+          (fset 'color-theme-snapshot (color-theme-make-snapshot)))
+        (color-theme-dark-laptop)))
+(global-set-key (kbd "<f9> n") 'toggle-night-color-theme)

@@ -1,0 +1,17 @@
+### .emacs.d目录结构概述
+####iwrose目录 
+包含三个文件夹： 
+
++ configurations  
+  对各项设置，以独立el文件的形式提供配置库。
++ packages
+  各类插件包。
++ libraries
+  独立的库文件。
+
+#### init.el
+emacs的启动文件，相当于用户目录下的.emacs文件。
+
+#### config.el
+利用configurations文件夹中的配置库文件，实现插拔式定制。
+

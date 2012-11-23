@@ -1,0 +1,28 @@
+;;定义必要的主题
+(setq window_day_theme 'color-theme-solarized-light)
+(setq window_night_theme 'color-theme-tangotango)
+(setq console_day_theme 'color-theme-solarized-light)
+(setq console_night_theme 'color-theme-solarized-dark)
+
+;;加载主题
+(require 'color-theme);;在packages/theme目录下
+(require window_night_theme)
+(require window_day_theme)
+(require console_night_theme)
+(require console_day_theme)
+
+(color-theme-tangotango)
+;;针对系统做初始化，copy来，不知到原因
+(cond
+ ((string-match "apple-darwin" system-configuration)
+  (color-theme-initialize)
+  )
+ ((string-match "linux" system-configuration)
+   (color-theme-initialize)
+  )
+ )
+
+;;根据是否是窗口/终端判断用那套主题
+(if window-system
+    (color-theme-subtle-hacker)
+  (color-theme-hober))

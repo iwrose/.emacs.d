@@ -1,0 +1,3 @@
+
+;;设置markdown模式
+(require 'yjj-conf-markdown)
